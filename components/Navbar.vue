@@ -9,9 +9,11 @@
       </a>
 
       <nav class="navbar__nav" role="navigation" aria-label="Main navigation" :class="{ 'navbar__nav--open': isMenuOpen }">
-        <NuxtLink class="navbar__link" to="/add-material" @click="handleNav">Materials</NuxtLink>
-        <NuxtLink class="navbar__link" to="/browse-marketplace" @click="handleNav">Browse Marketplace</NuxtLink>
+        <NuxtLink class="navbar__link" to="/marketplace" @click="handleNav">Marketplace</NuxtLink>
+        <NuxtLink class="navbar__link" to="/dashboard" @click="handleNav">Project Dashboard</NuxtLink>
+        <NuxtLink class="navbar__link" to="/add-material" @click="handleNav">Add Material</NuxtLink>
         <NuxtLink class="navbar__link" to="/reports" @click="handleNav">Reports</NuxtLink>
+        <NuxtLink class="navbar__link" to="/about" @click="handleNav">About Us</NuxtLink>
       </nav>
 
       <div class="navbar__actions">
