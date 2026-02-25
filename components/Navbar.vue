@@ -18,7 +18,7 @@
     </nav>
 
     <div class="navbar__cta">
-      <button class="btn">Get started</button>
+      <button class="btn">Sign Up</button>
     </div>
   </header>
 </template>
