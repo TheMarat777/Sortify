@@ -1,5 +1,13 @@
-# Nuxt Minimal Starter
+\
+# ENG_IDE_Sortify
+Innovation, Design and Entrepreneurship project.
 
+## Sortify
+Eco-focused website concept for sorting leftover construction materials.
+
+---
+
+## Nuxt development notes
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
@@ -73,3 +81,4 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
