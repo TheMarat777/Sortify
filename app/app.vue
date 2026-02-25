@@ -17,15 +17,21 @@
         </div>
       </div>
     </transition>
+
+    <main class="main-content">
+      <NuxtPage />
+    </main>
+
     <NuxtRouteAnnouncer />
+
     <AppFooter />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import AppFooter from "../components/Footer.vue"
 import Navbar from '../components/Navbar.vue'
+import AppFooter from '../components/AppFooter.vue'
 import logo from '../assets/images/Logo.png'
 import SignUpPopup from '../components/SignUpPopup.vue'
 import LoginPopup from '../components/LoginPopup.vue'
@@ -36,7 +42,6 @@ const showLogin = ref(false)
 
 function onSignUpClose() {
   showSignUp.value = false
-  // Delay hiding congrats if it's visible
   if (showCongrats.value) {
     setTimeout(() => { showCongrats.value = false }, 2000)
   }
@@ -59,6 +64,9 @@ function onShowSignUp() {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+.main-content {
+  flex: 1;
 }
 .congrats-popup {
   position: fixed;

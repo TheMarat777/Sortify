@@ -1,19 +1,22 @@
 <template>
   <header class="navbar" role="banner">
     <div class="navbar__left">
-      <a class="navbar__logo" href="/" aria-label="Home">
+      <NuxtLink class="navbar__logo" to="/" aria-label="Home">
         <slot name="logo">
           <div class="logo-placeholder">S</div>
         </slot>
         <span class="site-title">Sortify</span>
-      </a>
+      </NuxtLink>
     </div>
 
     <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
       <ul>
-        <li><a href="#">How it works</a></li>
-        <li><a href="#">Materials</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><NuxtLink to="/marketplace">Marketplace</NuxtLink></li>
+        <li><NuxtLink to="/dashboard">Project Dashboard</NuxtLink></li>
+        <li><NuxtLink to="/add-material">Add Material</NuxtLink></li>
+        <li><NuxtLink to="/material-details">Material Details</NuxtLink></li>
+        <li><NuxtLink to="/reports">Reports</NuxtLink></li>
+        <li><NuxtLink to="/about">About Us</NuxtLink></li>
       </ul>
     </nav>
 
@@ -42,8 +45,8 @@ defineEmits(['show-signup'])
 .navbar__logo { display: flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none; }
 .logo-placeholder { width: 44px; height: 44px; border-radius: 8px; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; }
 .site-title { font-weight: 700; font-size: 1.05rem; }
-.navbar__nav ul { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; }
-.navbar__nav a { color: rgba(255,255,255,0.95); text-decoration: none; padding: 0.25rem 0.5rem; border-radius: 4px; }
+.navbar__nav ul { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.navbar__nav a { color: rgba(255,255,255,0.95); text-decoration: none; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.92rem; white-space: nowrap; }
 .navbar__nav a:hover { background: rgba(255,255,255,0.06); }
 .btn { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.14); color: #fff; padding: 0.45rem 0.75rem; border-radius: 6px; cursor: pointer; }
 .btn:hover { background: rgba(255,255,255,0.18); }
