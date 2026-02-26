@@ -30,7 +30,7 @@
           :style="{ '--card-accent': card.color }"
         >
           <div class="det__card-icon-wrap">
-            <span class="det__card-icon">{{ card.icon }}</span>
+            <img :src="card.icon" :alt="card.label" class="det__card-icon-img" />
           </div>
           <div class="det__card-info">
             <span class="det__card-label">{{ card.label }}</span>
@@ -48,7 +48,9 @@
         <!-- Map Section -->
         <section class="det__map-card">
           <div class="det__map-card-header">
-            <div class="det__map-card-icon">📍</div>
+            <div class="det__map-card-icon">
+              <img :src="iconMap" alt="Map" class="det__header-icon-img" />
+            </div>
             <div>
               <h2 class="det__section-title">Project Location</h2>
               <p class="det__section-sub">Live site coordinates on OpenStreetMap</p>
@@ -91,7 +93,9 @@
         <!-- Project Details -->
         <section class="det__info-card">
           <div class="det__info-card-header">
-            <div class="det__info-card-icon">🏢</div>
+            <div class="det__info-card-icon">
+              <img :src="iconDetails" alt="Details" class="det__header-icon-img" />
+            </div>
             <div>
               <h2 class="det__section-title">Project Details</h2>
               <p class="det__section-sub">Key specifications &amp; targets</p>
@@ -125,7 +129,9 @@
       <section class="det__recent">
         <div class="det__recent-header">
           <div class="det__recent-header-left">
-            <div class="det__recent-icon">📦</div>
+            <div class="det__recent-icon">
+              <img :src="iconMaterials" alt="Materials" class="det__header-icon-img" />
+            </div>
             <div>
               <h2 class="det__section-title">Recent Registrations</h2>
               <p class="det__section-sub">{{ project.materials.length }} materials logged</p>
@@ -180,6 +186,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+
+import iconMap from '../../../assets/images/Project location with map and cityscape.png'
+import iconDetails from '../../../assets/images/Project details and planning tools.png'
+import iconMaterials from '../../../assets/images/Construction materials checklist with notification bell.png'
+
+import iconConcrete from '../../../assets/images/Cement mixer pouring concrete slab.png'
+import iconWood from '../../../assets/images/Freshly cut wooden plank detalle.png'
+import iconMetal from '../../../assets/images/Steel I-beam in focus.png'
+import iconReusable from '../../../assets/images/Green recycling bin with white symbol.png'
 
 const route = useRoute()
 
@@ -374,10 +389,10 @@ const projectId = Number(route.params.id)
 const project: ProjectDetail = projectsDB[projectId] ?? projectsDB[1]!
 
 const statCards = [
-  { key: 'concrete', label: 'Concrete',       value: project.stats.concrete, unit: 'kg',    icon: '🧱', color: '#6b7280' },
-  { key: 'wood',     label: 'Wood',           value: project.stats.wood,     unit: 'kg',    icon: '🪵', color: '#92400e' },
-  { key: 'metal',    label: 'Metal',          value: project.stats.metal,    unit: 'kg',    icon: '⚙️', color: '#374151' },
-  { key: 'reusable', label: 'Reusable Items', value: project.stats.reusable, unit: 'items', icon: '♻️', color: '#2f7a3e' },
+  { key: 'concrete', label: 'Concrete',       value: project.stats.concrete, unit: 'kg',    icon: iconConcrete, color: '#6b7280' },
+  { key: 'wood',     label: 'Wood',           value: project.stats.wood,     unit: 'kg',    icon: iconWood, color: '#92400e' },
+  { key: 'metal',    label: 'Metal',          value: project.stats.metal,    unit: 'kg',    icon: iconMetal, color: '#374151' },
+  { key: 'reusable', label: 'Reusable Items', value: project.stats.reusable, unit: 'items', icon: iconReusable, color: '#2f7a3e' },
 ]
 const maxStat = Math.max(...statCards.map((c) => c.value), 1)
 
@@ -522,7 +537,14 @@ const mapUrl = computed(() => {
   border-radius: 12px;
   background: color-mix(in srgb, var(--card-accent, #2f7a3e) 12%, transparent);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
+  overflow: hidden;
+  padding: 4px;
+}
+.det__card-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 .det__card-info { flex: 1; min-width: 0; }
 .det__card-label {
@@ -606,8 +628,9 @@ const mapUrl = computed(() => {
   border-radius: 12px;
   background: linear-gradient(135deg, #e6f4ea, #d4edda);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
   flex-shrink: 0;
+  overflow: hidden;
+  padding: 4px;
 }
 .det__map-wrap {
   margin: 16px 16px 0;
@@ -702,8 +725,9 @@ const mapUrl = computed(() => {
   border-radius: 12px;
   background: linear-gradient(135deg, #e8f0fe, #d6e4ff);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
   flex-shrink: 0;
+  overflow: hidden;
+  padding: 4px;
 }
 .det__details {
   margin: 0;
@@ -824,8 +848,15 @@ const mapUrl = computed(() => {
   border-radius: 12px;
   background: linear-gradient(135deg, #fef3cd, #fde68a);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
   flex-shrink: 0;
+  overflow: hidden;
+  padding: 4px;
+}
+.det__header-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 .det__recent-legend {
   display: flex;

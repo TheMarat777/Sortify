@@ -68,8 +68,9 @@
         </p>
         <div class="ab__team-grid">
           <div v-for="m in team" :key="m.name" class="ab__team-card">
-            <div class="ab__team-avatar" :style="{ background: m.bg }">
-              {{ m.initials }}
+            <div class="ab__team-avatar" :style="{ background: m.img ? 'none' : m.bg }">
+              <img v-if="m.img" :src="m.img" :alt="m.name" class="ab__team-photo" />
+              <span v-else>{{ m.initials }}</span>
             </div>
             <h3 class="ab__team-name">{{ m.name }}</h3>
             <span class="ab__team-role">{{ m.role }}</span>
@@ -120,6 +121,11 @@ import missionImg from '../../assets/images/Target, checklist and lightbulb icon
 import visionImg from '../../assets/images/Sustainable vision and growth icon.png'
 import promiseImg from '../../assets/images/Handshake of trust and growth.png'
 
+import photoMarat from '../../assets/images/Marat Colesnic.jpg'
+import photoAndreea from '../../assets/images/Andreea Caisim.jpeg'
+import photoMarius from '../../assets/images/Marius Marcoci.jpeg'
+import photoHelena from '../../assets/images/Helena.jpg'
+
 const pillars = [
   {
     img: missionImg, title: 'Mission', color: '#2f7a3e',
@@ -153,12 +159,12 @@ const timeline = [
 ]
 
 const team = [
-  { name: 'Marat Colesnic', initials: 'MC', role: 'Software Engineer', bg: '#2f7a3e', bio: 'Frontend engineer who brought the Sortify interface to life — from marketplace layouts to interactive dashboards and responsive design.' },
-  { name: 'Andreea Caisim', initials: 'AC', role: 'Software Engineer', bg: '#2f7a3e', bio: 'Frontend developer responsible for crafting the UI components, styling and user experience across the platform.' },
-  { name: 'Marius Marcoci', initials: 'MM', role: 'Software Engineer', bg: '#2f7a3e', bio: 'Database engineer who designed and maintained the data layer — structuring material records, project data and user information.' },
-  { name: 'Ashrakat Sh Ibrahim', initials: 'ASI', role: 'Civil Engineer', bg: '#b45309', bio: 'Civil engineer focused on sustainable building practices, waste auditing and ensuring compliance with Danish demolition regulations.' },
-  { name: 'Helena Thybo Cavazzi', initials: 'HTC', role: 'Civil Engineer', bg: '#b45309', bio: 'Structural engineer with expertise in material assessment, selective demolition planning and construction lifecycle analysis.' },
-  { name: 'Kasper Gjesse', initials: 'KG', role: 'Civil Engineer', bg: '#b45309', bio: 'Civil engineer specialising in on-site material recovery, quality documentation and coordinating reuse logistics for demolition projects.' },
+  { name: 'Marat Colesnic', initials: 'MC', role: 'Software Engineer', bg: '#2f7a3e', img: photoMarat, bio: 'Frontend engineer who brought the Sortify interface to life — from marketplace layouts to interactive dashboards and responsive design.' },
+  { name: 'Andreea Caisim', initials: 'AC', role: 'Software Engineer', bg: '#2f7a3e', img: photoAndreea, bio: 'Frontend developer responsible for crafting the UI components, styling and user experience across the platform.' },
+  { name: 'Marius Marcoci', initials: 'MM', role: 'Software Engineer', bg: '#2f7a3e', img: photoMarius, bio: 'Database engineer who designed and maintained the data layer — structuring material records, project data and user information.' },
+  { name: 'Ashrakat Sh Ibrahim', initials: 'ASI', role: 'Civil Engineer', bg: '#b45309', img: null, bio: 'Civil engineer focused on sustainable building practices, waste auditing and ensuring compliance with Danish demolition regulations.' },
+  { name: 'Helena Thybo Cavazzi', initials: 'HTC', role: 'Civil Engineer', bg: '#b45309', img: photoHelena, bio: 'Structural engineer with expertise in material assessment, selective demolition planning and construction lifecycle analysis.' },
+  { name: 'Kasper Gjesse', initials: 'KG', role: 'Civil Engineer', bg: '#b45309', img: null, bio: 'Civil engineer specialising in on-site material recovery, quality documentation and coordinating reuse logistics for demolition projects.' },
 ]
 
 const values = [
@@ -367,7 +373,7 @@ const values = [
 /* ──── Team ──── */
 .ab__team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .ab__team-card {
@@ -383,17 +389,24 @@ const values = [
   box-shadow: 0 8px 28px rgba(0,0,0,0.1);
 }
 .ab__team-avatar {
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   color: #fff;
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 14px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.ab__team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .ab__team-name { font-size: 1rem; font-weight: 700; color: #1a1a1a; margin: 0 0 2px; }
 .ab__team-role {
