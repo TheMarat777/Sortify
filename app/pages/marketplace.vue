@@ -31,7 +31,7 @@
       <!-- Location status banner -->
       <transition name="loc-banner">
         <div v-if="locationStatus" class="mp__loc-banner" :class="'mp__loc-banner--' + locationStatus">
-          <span v-if="locationStatus === 'loading'">📡 Detecting your location…</span>
+          <span v-if="locationStatus === 'loading'">Detecting your location…</span>
           <span v-else-if="locationStatus === 'success'">📍 Location found — showing distances from you</span>
           <span v-else-if="locationStatus === 'denied'">⚠️ Location access denied — please allow it in your browser to use "Nearest to you"</span>
           <span v-else-if="locationStatus === 'error'">⚠️ Could not detect location — try again later</span>
@@ -128,16 +128,16 @@
               <div class="mp__card-body">
                 <h3 class="mp__card-title">{{ item.title }}</h3>
                 <p class="mp__card-meta">
-                  <span>📦 Qty: {{ item.quantity }} {{ item.unit }}</span>
+                  <span>• Qty: {{ item.quantity }} {{ item.unit }}</span>
                 </p>
                 <p class="mp__card-meta">
-                  <span>📍 {{ item.location }}</span>
+                  <span>• {{ item.location }}</span>
                   <span v-if="getDistance(item)" class="mp__card-distance">
                     — 📏 {{ getDistance(item) }} km from you
                   </span>
                 </p>
                 <p class="mp__card-meta">
-                  <span>📅 {{ formatDate(item.availabilityDate) }}</span>
+                  <span>• {{ formatDate(item.availabilityDate) }}</span>
                 </p>
                 <NuxtLink :to="'/marketplace/' + item.id" class="mp__card-btn">
                   View Details
