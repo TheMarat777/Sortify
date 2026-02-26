@@ -6,7 +6,7 @@
     <div class="stats__bg-shape stats__bg-shape--3"></div>
 
     <div class="stats__container">
-      <span class="stats__badge">🌍 Real numbers, real impact</span>
+      <span class="stats__badge">Real numbers, real impact</span>
       <h2 class="stats__title">Impact so far</h2>
       <p class="stats__subtitle">Every kilogram saved is a step towards a circular construction industry.</p>
 
@@ -18,7 +18,7 @@
           :class="'stats__card--' + (i + 1)"
         >
           <div class="stats__icon-ring">
-            <span class="stats__emoji">{{ stat.emoji }}</span>
+            <img :src="stat.img" :alt="stat.label" class="stats__icon-img" />
           </div>
           <span class="stats__value">{{ stat.value }}</span>
           <span class="stats__label">{{ stat.label }}</span>
@@ -32,10 +32,14 @@
 </template>
 
 <script setup lang="ts">
+import iconRecycle from '../assets/images/Recycling materials within a green loop.png'
+import iconDemolition from '../assets/images/Building demolition in progress.png'
+import iconMoney from '../assets/images/Stacks of US dollars on display.png'
+
 const stats = [
-  { emoji: '♻️', value: '12,400 kg', label: 'Materials saved from landfill', bar: '78%' },
-  { emoji: '🏗️', value: '6', label: 'Demolition projects tracked', bar: '60%' },
-  { emoji: '💰', value: '€240,000', label: 'Total reused value', bar: '90%' },
+  { img: iconRecycle, value: '12,400 kg', label: 'Materials saved from landfill', bar: '78%' },
+  { img: iconDemolition, value: '6', label: 'Demolition projects tracked', bar: '60%' },
+  { img: iconMoney, value: '€240,000', label: 'Total reused value', bar: '90%' },
 ]
 </script>
 
@@ -144,10 +148,15 @@ const stats = [
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
+  overflow: hidden;
+  padding: 6px;
 }
 
-.stats__emoji {
-  font-size: 1.7rem;
+.stats__icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .stats__value {
