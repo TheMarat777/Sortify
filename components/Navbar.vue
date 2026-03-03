@@ -54,10 +54,8 @@ function handleNav() {
   top: 0;
   z-index: 50;
   width: 100%;
-  padding: 0.75rem 1.5rem;
-  background: rgba(24, 48, 32, 0.72);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(253, 247, 239, 0.15);
+  padding: 1rem 1.5rem;
+  background: transparent;
   color: #fff;
 }
 
@@ -69,6 +67,12 @@ function handleNav() {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  padding: 0.65rem 1.25rem;
+  border-radius: 32px;
+  background: rgba(17, 37, 24, 0.78);
+  border: 1px solid rgba(253, 247, 239, 0.16);
+  box-shadow: 0 20px 45px rgba(6, 12, 9, 0.45);
+  backdrop-filter: blur(18px);
 }
 
 .navbar__logo {
@@ -83,7 +87,7 @@ function handleNav() {
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(253, 247, 239, 0.4), rgba(253, 247, 239, 0.15));
+  background: linear-gradient(135deg, rgba(253, 247, 239, 0.7), rgba(253, 247, 239, 0.15));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,18 +96,19 @@ function handleNav() {
 
 .site-title {
   font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.01em;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .navbar__nav {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.2rem;
+  gap: 0.4rem;
+  padding: 0.3rem;
   border-radius: 999px;
-  background: rgba(253, 247, 239, 0.12);
-  box-shadow: inset 0 0 0 1px rgba(253, 247, 239, 0.18);
+  background: rgba(253, 247, 239, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(253, 247, 239, 0.22);
   flex: 1;
   justify-content: center;
 }
@@ -114,8 +119,9 @@ function handleNav() {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.92rem;
-  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .navbar__link:hover {
@@ -124,9 +130,9 @@ function handleNav() {
 
 .navbar__link.router-link-active,
 .navbar__link.router-link-exact-active {
-  background: linear-gradient(135deg, rgba(47, 122, 62, 0.35), rgba(107, 79, 50, 0.45));
+  background: linear-gradient(135deg, rgba(47, 122, 62, 0.5), rgba(107, 79, 50, 0.5));
   color: #fff;
-  box-shadow: 0 8px 18px rgba(107, 79, 50, 0.3);
+  box-shadow: 0 12px 30px rgba(15, 42, 27, 0.45);
 }
 
 .navbar__actions {
@@ -144,16 +150,17 @@ function handleNav() {
   cursor: pointer;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .navbar__login:hover {
-  background: rgba(253, 247, 239, 0.15);
+  background: rgba(253, 247, 239, 0.2);
   border-color: rgba(253, 247, 239, 0.5);
+  transform: translateY(-1px);
 }
 
 .btn {
-  background: linear-gradient(135deg, #2f7a3e, #6b4f32);
+  background: linear-gradient(120deg, #a5d67a, #2f7a3e 60%, #6b4f32);
   border: none;
   color: #fffbe9;
   padding: 0.55rem 1.55rem;
@@ -161,7 +168,7 @@ function handleNav() {
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 10px 25px rgba(47, 122, 62, 0.35);
+  box-shadow: 0 18px 35px rgba(47, 122, 62, 0.35);
 }
 
 .btn:hover {
@@ -180,7 +187,7 @@ function handleNav() {
 .navbar__toggle span {
   width: 20px;
   height: 2px;
-  background: #f5efe4;
+  background: rgba(253, 247, 239, 0.8);
   display: block;
   transition: transform 0.2s ease;
 }
@@ -188,6 +195,7 @@ function handleNav() {
 @media (max-width: 1024px) {
   .navbar__inner {
     gap: 0.75rem;
+    padding: 0.5rem 0.85rem;
   }
 
   .navbar__nav {
@@ -197,10 +205,10 @@ function handleNav() {
     left: 1.5rem;
     right: 1.5rem;
     flex-direction: column;
-    background: rgba(12, 27, 19, 0.95);
-    border-radius: 20px;
-    padding: 1rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    background: rgba(12, 27, 19, 0.92);
+    border-radius: 24px;
+    padding: 1.25rem;
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.45);
     transform: scale(0.95);
     opacity: 0;
     pointer-events: none;
